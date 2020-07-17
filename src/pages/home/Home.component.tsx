@@ -2,6 +2,7 @@ import React from "react";
 import { IHomeProps, IHomeState } from "./interfaces";
 import TrelloList from "../../components/trello-list/TrelloList.component";
 import { connect } from "react-redux";
+import "./Home.component.css";
 
 const mapStateToProps = (state: any) => {
   return {
@@ -18,11 +19,13 @@ class Home extends React.Component<IHomeProps, IHomeState> {
     const { list } = this.props;
     return (
       <>
-        {list &&
-          list.data &&
-          list.data.map((item: any) => {
-            return <TrelloList title={item.title} cards={item.card}/>;
-          })}
+        <div className="list-container">
+          {list &&
+            list.data &&
+            list.data.map((item: any) => {
+              return <TrelloList title={item.title} cards={item.card} />;
+            })}
+        </div>
       </>
     );
   }

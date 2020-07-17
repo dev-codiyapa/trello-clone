@@ -15,6 +15,34 @@ const initialState: IList = {
           text: "caretd second static card"
         }
       ]
+    },
+    {
+      title: "In progress",
+      id: 1,
+      card: [
+        {
+          id: 0,
+          text: "First In progress task"
+        },
+        {
+          id: 1,
+          text: "complete testing of task-1"
+        }
+      ]
+    },
+    {
+      title: "Done",
+      id: 2,
+      card: [
+        {
+          id: 0,
+          text: "First In progress task"
+        },
+        {
+          id: 1,
+          text: "complete testing of task-1"
+        }
+      ]
     }
   ]
 };
