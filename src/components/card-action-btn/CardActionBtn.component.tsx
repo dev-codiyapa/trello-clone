@@ -2,6 +2,7 @@ import React from "react";
 import { ICardActionBtnProps, ICardActionBtnState } from "./interfaces";
 import Icon from "@material-ui/core/Icon";
 import "./CardActionBtn.component.css";
+import CardForm from "../card-form/CardForm.component";
 
 class CardActionBtn extends React.Component<
   ICardActionBtnProps,
@@ -9,11 +10,22 @@ class CardActionBtn extends React.Component<
 > {
   constructor(props: any) {
     super(props);
-    this.state = {};
+    this.state = {
+      isFormOpen: false
+    };
   }
-  addCard = () => {
-    console.log("add card");
+
+  handleAddCard = () => {
+    this.setState({
+      isFormOpen: true
+    });
   };
+
+//   close = ()=> {
+//     this.setState({
+//         isFormOpen: false
+//       });
+//   }
 
   cardButton = () => {
     const { list } = this.props;
@@ -22,7 +34,7 @@ class CardActionBtn extends React.Component<
       <>
         <div
           className={list ? "add-list-btn" : "add-card-btn"}
-          onClick={this.addCard}
+          onClick={this.handleAddCard}
         >
           <Icon>add</Icon>
           <span>{btnText}</span>
@@ -30,8 +42,9 @@ class CardActionBtn extends React.Component<
       </>
     );
   };
+
   render() {
-    return this.cardButton();
+    return this.state.isFormOpen ? <CardForm /> : this.cardButton();
   }
 }
 
