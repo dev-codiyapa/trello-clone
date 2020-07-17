@@ -1,2 +1,4 @@
-export interface IHomeProps{};
-export interface IHomeState{}
+export interface IHomeProps {
+  list: any;
+}
+export interface IHomeState {}

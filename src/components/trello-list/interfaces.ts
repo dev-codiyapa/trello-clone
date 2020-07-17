@@ -1,4 +1,5 @@
 export interface ITrelloListProps{
-    title:string
+    title:string;
+    cards:Array<any>
 };
 export interface ITrelloListState{};

@@ -1,1 +1,3 @@
-export interface ITrelloCardProps{}
+export interface ITrelloCardProps {
+  text: string;
+}
