@@ -23,7 +23,13 @@ class Home extends React.Component<IHomeProps, IHomeState> {
           {list &&
             list.data &&
             list.data.map((item: any) => {
-              return <TrelloList title={item.title} cards={item.card} />;
+              return (
+                <TrelloList
+                  key={item.id}
+                  title={item.title}
+                  cards={item.card}
+                />
+              );
             })}
         </div>
       </>

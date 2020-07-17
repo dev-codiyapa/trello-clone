@@ -1,0 +1,21 @@
+.add-list-btn, .add-card-btn{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 3px;
+    height: 36px;
+    width: 272px;
+    padding-left: 10px;
+    font-size: 14px;
+    margin-top: 10px;
+}
+.add-list-btn{
+    opacity: 1;
+    color: #ffffff;
+    background: rgba(0,0,0,1.5);
+}
+.add-card-btn{
+    opacity: 0.5;
+    color: inherit;
+    background: inherit;
+}
