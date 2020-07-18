@@ -21,11 +21,11 @@ class CardActionBtn extends React.Component<
     });
   };
 
-//   close = ()=> {
-//     this.setState({
-//         isFormOpen: false
-//       });
-//   }
+  closeCardForm = () => {
+    this.setState({
+      isFormOpen: false
+    });
+  };
 
   cardButton = () => {
     const { list } = this.props;
@@ -44,7 +44,11 @@ class CardActionBtn extends React.Component<
   };
 
   render() {
-    return this.state.isFormOpen ? <CardForm /> : this.cardButton();
+    return this.state.isFormOpen ? (
+      <CardForm closeCardForm={this.closeCardForm} />
+    ) : (
+      this.cardButton()
+    );
   }
 }
 
