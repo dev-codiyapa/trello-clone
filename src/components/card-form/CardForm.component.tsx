@@ -45,6 +45,7 @@ class CardForm extends React.Component<ICardFormProps & any, ICardFormState> {
     } else if (type == "card" && title) {
       this.props.addCard(listId, title);
     }
+    this.props.closeCardForm();
   };
 
   closeForm = () => {

@@ -4,6 +4,7 @@ import TrelloList from "../../components/trello-list/TrelloList.component";
 import { connect } from "react-redux";
 import "./Home.component.css";
 import CardActionBtn from "../../components/card-action-btn/CardActionBtn.component";
+import PrimarySearchAppBar from "../../components/header/Header.component";
 
 const mapStateToProps = (state: any) => {
   return {
@@ -16,6 +17,7 @@ class Home extends React.Component<IHomeProps, IHomeState> {
     const { list } = this.props;
     return (
       <>
+        <PrimarySearchAppBar />
         <div className="list-container">
           {list &&
             list.data &&
