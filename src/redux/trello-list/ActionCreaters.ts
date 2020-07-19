@@ -1,9 +1,16 @@
-import { IaddList } from "./interfaces";
+import { IaddList, IaddCard } from "./interfaces";
 
 export const addList: IaddList = (title: string) => {
-  console.log("add list action");
   return {
     type: "ADD_LIST",
     payload: title
+  };
+};
+
+export const addCard: IaddCard = (listId: number, content: string) => {
+  console.log("add card action");
+  return {
+    type: "ADD_CARD",
+    payload: { listId, content }
   };
 };

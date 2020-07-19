@@ -49,6 +49,15 @@ const initialState: IList = {
 
 const listReducer = (state: any = initialState, action: any): any => {
   switch (action.type) {
+    case "ADD_LIST":
+      let listId = state.data && state.data.length;
+      const newList = {
+        title: action.payload,
+        id: listId + 1,
+        card: []
+      };
+      const currentList = state.data;
+      return { ...state, ...currentList.push(newList) };
     default:
       return state;
   }

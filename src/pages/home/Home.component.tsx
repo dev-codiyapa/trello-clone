@@ -11,10 +11,6 @@ const mapStateToProps = (state: any) => {
   };
 };
 
-// const mapDispatchToProps = () => ({
-
-// })
-
 class Home extends React.Component<IHomeProps, IHomeState> {
   render() {
     const { list } = this.props;
@@ -32,7 +28,7 @@ class Home extends React.Component<IHomeProps, IHomeState> {
                 />
               );
             })}
-            <CardActionBtn list="lsit"/>
+            <CardActionBtn type="list"/>
         </div>
       </>
     );

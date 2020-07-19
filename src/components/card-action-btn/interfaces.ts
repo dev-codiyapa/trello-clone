@@ -1,5 +1,5 @@
 export interface ICardActionBtnProps {
-  list: string;
+    type: string;
 }
 export interface ICardActionBtnState {
     isFormOpen:boolean

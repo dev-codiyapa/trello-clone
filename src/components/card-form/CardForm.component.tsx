@@ -4,7 +4,7 @@ import Card from "@material-ui/core/Card";
 import "./CardForm.component.css";
 import { CardContent, Button, Icon } from "@material-ui/core";
 import { connect } from "react-redux";
-import { addList } from "../../redux/trello-list/ActionCreaters";
+import { addList, addCard } from "../../redux/trello-list/ActionCreaters";
 import {
   ICardFormProps,
   ICardFormDispatchProps,
@@ -17,7 +17,9 @@ const mapStateToProps = (state: any) => {
   };
 };
 const mapDispatchToProps = (dispatch: any): ICardFormDispatchProps => ({
-  addList: (title: string) => dispatch(addList(title))
+  addList: (title: string) => dispatch(addList(title)),
+  addCard: (listId: number, content: string) =>
+    dispatch(addCard(listId, content))
 });
 class CardForm extends React.Component<ICardFormProps & any, ICardFormState> {
   constructor(props: any) {
@@ -33,21 +35,28 @@ class CardForm extends React.Component<ICardFormProps & any, ICardFormState> {
       cardConent: textContent
     });
   };
+
   addCardToList = () => {
-    this.props.addList("new List");
-    console.log("add card to list");
+    const type = this.props.type;
+    let title = this.state.cardConent;
+    let listId = 1;
+    if (type == "list" && title) {
+      this.props.addList(title);
+    } else if (type == "card" && title) {
+      this.props.addCard(listId, title);
+    }
   };
+
   closeForm = () => {
     this.props.closeCardForm();
-    console.log("close form");
+    console.log("close form 1-2-3");
   };
 
   renderCardForm = () => {
-    let list = "";
-    const cardTitle = list
-      ? "Enter list title..."
-      : "Enter a title of this card...";
-    const btnText = list ? "Add Card" : "Add list";
+    let type = this.props.type;
+    const cardTitle =
+      type == "list" ? "Enter list title..." : "Enter a title of this card...";
+    const btnText = type == "list" ? "Add list" : "Add Card";
     return (
       <>
         <div className="card-form">
@@ -56,7 +65,6 @@ class CardForm extends React.Component<ICardFormProps & any, ICardFormState> {
               placeholder={cardTitle}
               value={this.state.cardConent}
               className="card-box"
-              onBlur={this.closeForm}
               onChange={this.hanldInputChange}
               autoFocus
             />

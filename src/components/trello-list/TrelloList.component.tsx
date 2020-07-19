@@ -14,7 +14,7 @@ const TrelloList: React.FC<ITrelloListProps> = props => {
         {cards && cards.length && cards.map(item => {
             return <TrelloCard key={item.id} text={item.text}/>
         })}
-        <CardActionBtn list=""/>
+        <CardActionBtn type="card"/>
       </div>
     </>
   );
