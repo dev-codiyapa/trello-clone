@@ -5,16 +5,15 @@ import TrelloCard from "../trello-card/TrelloCard.component";
 import CardActionBtn from "../card-action-btn/CardActionBtn.component";
 
 const TrelloList: React.FC<ITrelloListProps> = props => {
-  let { title, cards } = { ...props };
-  console.log("cards in card list is ===>", cards);
+  let { title, cards, listId } = { ...props };
   return (
     <>
       <div className="container">
         <h4>{title}</h4>
-        {cards && cards.length && cards.map(item => {
-            return <TrelloCard key={item.id} text={item.text}/>
+        {cards  && cards.map(item => {
+            return <TrelloCard key={item.id} text={item.text} cardId={item.id}/>
         })}
-        <CardActionBtn type="card"/>
+        <CardActionBtn type="card" listId={listId}/>
       </div>
     </>
   );

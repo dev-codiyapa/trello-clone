@@ -1,4 +1,5 @@
 import { IList } from "./interfaces";
+import { stat } from "fs";
 
 const initialState: IList = {
   data: [
@@ -24,10 +25,6 @@ const initialState: IList = {
           id: 0,
           text: "First In progress task"
         },
-        {
-          id: 1,
-          text: "complete testing of task-1"
-        }
       ]
     },
     {
@@ -36,12 +33,8 @@ const initialState: IList = {
       card: [
         {
           id: 0,
-          text: "First In progress task"
+          text: "First task is done"
         },
-        {
-          id: 1,
-          text: "complete testing of task-1"
-        }
       ]
     }
   ]
@@ -58,6 +51,20 @@ const listReducer = (state: any = initialState, action: any): any => {
       };
       const currentList = state.data;
       return { ...state, ...currentList.push(newList) };
+    case "ADD_CARD":
+      let listTrelloId = action.payload && action.payload.listId;
+      let cardContent = action.payload && action.payload.content;
+      let data = state.data;
+      let requestedList = null;
+      for (let i = 0; i < data.length; i++) {
+        if (listTrelloId == data[i].id) {
+          requestedList = data[i];
+          break;
+        }
+      }
+      let cardId = requestedList.card && requestedList.card.length - 1;
+      requestedList.card.push({ id: cardId, text: cardContent });
+      return { ...state };
     default:
       return state;
   }

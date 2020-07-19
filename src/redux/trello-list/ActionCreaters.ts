@@ -8,7 +8,6 @@ export const addList: IaddList = (title: string) => {
 };
 
 export const addCard: IaddCard = (listId: number, content: string) => {
-  console.log("add card action");
   return {
     type: "ADD_CARD",
     payload: { listId, content }

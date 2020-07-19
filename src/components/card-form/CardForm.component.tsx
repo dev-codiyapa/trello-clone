@@ -38,8 +38,8 @@ class CardForm extends React.Component<ICardFormProps & any, ICardFormState> {
 
   addCardToList = () => {
     const type = this.props.type;
+    const listId = this.props.listId
     let title = this.state.cardConent;
-    let listId = 1;
     if (type == "list" && title) {
       this.props.addList(title);
     } else if (type == "card" && title) {
@@ -71,7 +71,7 @@ class CardForm extends React.Component<ICardFormProps & any, ICardFormState> {
           </Card>
           <div className="card-form__btn_section">
             <Button
-              variant="contained"
+              variant="contained" 
               className="card-form__btn"
               onClick={this.addCardToList}
             >

@@ -29,7 +29,6 @@ class CardActionBtn extends React.Component<
 
   cardButton = () => {
     const { type } = this.props;
-    console.log("type in action btn is ===>", type);
     const btnText = type == "list" ? "Add another list" : "Add another card";
     return (
       <>
@@ -45,8 +44,13 @@ class CardActionBtn extends React.Component<
   };
 
   render() {
+    const { type, listId } = this.props;
     return this.state.isFormOpen ? (
-      <CardForm closeCardForm={this.closeCardForm} type={this.props.type}/>
+      <CardForm
+        closeCardForm={this.closeCardForm}
+        type={type}
+        listId={listId}
+      />
     ) : (
       this.cardButton()
     );

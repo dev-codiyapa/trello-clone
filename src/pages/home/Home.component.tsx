@@ -25,10 +25,11 @@ class Home extends React.Component<IHomeProps, IHomeState> {
                   key={item.id}
                   title={item.title}
                   cards={item.card}
+                  listId={item.id}
                 />
               );
             })}
-            <CardActionBtn type="list"/>
+            <CardActionBtn type="list" listId={1}/>
         </div>
       </>
     );

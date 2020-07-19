@@ -1,6 +1,7 @@
 export interface ICardFormProps {
   closeCardForm: () => void;
   type: string;
+  listId:number
 }
 export interface ICardFormDispatchProps {
   addList: (title: string) => void;
